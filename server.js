@@ -18,35 +18,21 @@ mongoose.connect(DB, {
 // console.log(app.get("env"));
 // console.log(process.env);
 
-const nftSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, "A NFT must have a name"],
-        unique: true,
-    },
-    rating: {
-        type: Number,
-        default: 4.5,
-    },
-    price: {
-        type: Number,
-        required: [true, "A NFT must have price"],
-    },
-});
 
-const NFT = mongoose.model("NFT", nftSchema);
 
-const testNFT = new NFT({
-    name: "The Crazy Monkey",
-    rating: 3.2,
-    price: 567
-});
 
-testNFT.save().then(docNFT => {
-    console.log(docNFT)
-}).catch((error) => {
-    console.log("ERROR:", error);
-});
+
+// const testNFT = new NFT({
+//     name: "The Crazy Monkey",
+//     rating: 3.2,
+//     price: 567
+// });
+
+// testNFT.save().then(docNFT => {
+//     console.log(docNFT)
+// }).catch((error) => {
+//     console.log("ERROR:", error);
+// });
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
